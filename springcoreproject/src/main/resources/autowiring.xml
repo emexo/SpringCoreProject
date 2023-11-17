@@ -7,16 +7,16 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-        <property name="location" value="classpath:mail.properties"/>
+    <bean name="loan" class="com.emexo.xml.autowiring.Loan">
+        <property name="loanId" value="1"/>
+        <property name="loanType" value="Saving"/>
     </bean>
-    
 
-    <bean name="mailConfig" class="com.emexo.xml.propertiesfile.MailConfiguration">
-        <property name="host" value="${smtp.host}" />
-        <property name="port" value="${smtp.port}" />
-        <property name="username" value="${smtp.user}" />
-        <property name="password" value="${smtp.pass}" />
+    <bean name="customer" class="com.emexo.xml.autowiring.Customer" autowire="default">
+        <property name="customerId" value="1"/>
+        <property name="customerName" value="Regu"/>
+        <property name="loan" ref="loan"/>
+
     </bean>
 
 </beans>
