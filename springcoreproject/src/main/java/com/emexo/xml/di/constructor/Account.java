@@ -3,7 +3,6 @@ package com.emexo.xml.di.constructor;
 public class Account {
     private int accountNo;
     private String accountName;
-
     private Customer customer;
 
     public Account(int accountNo, String accountName, Customer customer) {

@@ -6,7 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.stereotype.Component;
+
+import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:db.properties")
@@ -35,6 +39,14 @@ public class DBConfiguration {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
         return jdbcTemplate;
+    }
+
+    @Bean
+    public DataSource dataSource(){
+        EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
+        return embeddedDatabaseBuilder.addScript("create-table.sql")
+                .setType(EmbeddedDatabaseType.H2)
+                .build();
     }
 
 

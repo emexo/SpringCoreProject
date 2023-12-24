@@ -16,7 +16,6 @@
         <property name="customerId" value="1"/>
         <property name="customerName" value="Regu"/>
         <property name="loan" ref="loan"/>
-
     </bean>
 
 </beans>

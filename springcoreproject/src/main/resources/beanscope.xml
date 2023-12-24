@@ -10,5 +10,4 @@
     <bean id="loggerExample" class="com.emexo.xml.scope.LoggerExample" scope="prototype">
             <constructor-arg index="0" value="info"/>
     </bean>
-
 </beans>

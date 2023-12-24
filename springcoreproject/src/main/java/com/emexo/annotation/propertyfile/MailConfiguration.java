@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /*@PropertySources({
         @PropertySource("classpath:mail.properties"),
-        @PropertySource("classpath:mail.properties")
+        @PropertySource("classpath:db.properties")
 })*/
 @PropertySource("classpath:mail.properties")  // load the property file
 @Component

@@ -9,6 +9,10 @@ public class Product {
     private int productId;
     private String productName;
 
+    public Product() {
+        System.out.println("Default constructor");
+    }
+
     public int getProductId() {
         return productId;
     }

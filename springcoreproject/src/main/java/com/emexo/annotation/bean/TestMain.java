@@ -6,15 +6,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class TestMain {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.emexo.ioc.annotation.bean");
-        CustomerService customerService= context.getBean("customerService", CustomerService.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.emexo.annotation.bean");
 
-        customerService.setCustomerId(1);
-        customerService.setCustomerName("Raju");
-
-        System.out.println(customerService);
-
-        Customer customer = context.getBean("customer", Customer.class);
+        Customer customer = (Customer) context.getBean("customer");
+        customer.setCustomerId(1);
+        customer.setCustomerName("Regu");
+        System.out.println(customer);
 
     }
 }

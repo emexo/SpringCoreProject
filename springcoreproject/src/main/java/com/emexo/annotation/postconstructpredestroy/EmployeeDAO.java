@@ -1,11 +1,12 @@
 package com.emexo.annotation.postconstructpredestroy;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+@Repository
 public class EmployeeDAO {
 
     @PostConstruct

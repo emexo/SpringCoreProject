@@ -6,6 +6,7 @@ public class Employee {
     private String empName;
 
     public Employee(){
+        System.out.println("Default constructor");
         this.empId =1;
         this.empName ="Regu";
     }
