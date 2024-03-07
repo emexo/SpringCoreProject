@@ -3,6 +3,7 @@ package com.emexo.dao;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
+
 @Configuration
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:application.properties")
 public class DBConfiguration {
 
     @Value("${db.url}")
@@ -39,14 +41,6 @@ public class DBConfiguration {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
         return jdbcTemplate;
-    }
-
-    @Bean
-    public DataSource dataSource(){
-        EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
-        return embeddedDatabaseBuilder.addScript("create-table.sql")
-                .setType(EmbeddedDatabaseType.H2)
-                .build();
     }
 
 
